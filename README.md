@@ -164,8 +164,78 @@ Loops er en grundlæggende kontrolstruktur i programmering, der tillader gentage
 
 ### While loops
 
-Sample text
+Et while-loop er en af de mest fundamentale former for loops. Det er ikke kun let at læse, men det kan også være meget nyttigt. Konceptet med et while-loop er, at det skal forstås som "kør dette, så længe [betingelse] er opfyldt".
+
+Her er et eksempel af et while-loop der vil køre for evigt
+
+```cpp
+while(true){
+
+}
+```
+
+Dette while-loop kører uendeligt, fordi det skal tolkes som "så længe sandt er sandt, gentag koden". "Sandt" kan erstattes med en betingelse, der passer bedre til formålet.
+
+Her er et eksempel på et loop, der sætter 10 Arduino-pins til output:
+
+```cpp
+void setup(){
+  const unsigned char pinOffset = 1;
+  unsigned char pins = 0;
+
+  while(pins < 10){
+    pinMode(pins + pinOffset, OUTPUT);
+    pins += 1;
+  }
+}
+```
+
+Dette while-loop udfører pinMode-funktionen for at indstille hver af de 10 Arduino-pins som output. pins variablen bruges som en tæller, og pinOffset variablen bruges til at justere pinnumrene. Loopen gentages, indtil pins når værdien 10.
 
 ### For loops
 
-Sample text
+For-loops er en anden type loop, der findes i C++. Der er to typer af for-loops: den traditionelle for-loop og for each-loop, som findes i sprog som C#. Lad os først se på den traditionelle for-loop.
+
+Den traditionelle for-loop består af tre dele: initialisering af index, en betingelse og en opdatering af index i hvert gennemløb.
+
+Her er hvordan en traditionel for-loop ser ud
+
+```cpp
+// Her initialiseres indexvariablen i til 0
+// i < 10 er betingelsen for at fortsætte loopet
+// ++i eller i += 1 er opdateringen af indexvariablen for hvert gennemløb
+for(int i = 0; i < 10; ++i){
+
+}
+```
+
+I dette eksempel initialiseres i til 0, og så længe i er mindre end 10, vil loopet køre. Efter hvert gennemløb af loopet bliver i øget med 1.
+
+For each-loopet er en lidt mere kompliceret type af vores for-loop. Det kræver, at vi har noget at loop over, såsom et array eller en samling af elementer.
+
+Når man skal læse et for each-loop, skal det læses som "for hvert element i array".
+
+Her er et eksempel på hvordan det kan se ud 
+
+```cpp
+for(int i : array){
+
+}
+```
+
+I dette eksempel gennemløbes hvert element i array, og værdien af hvert element tildeles variablen i. Bemærk, at typen af i skal passe til typen af elementerne i array. For eksempel, hvis array indeholder heltal, skal i også være af typen heltal.
+
+Her er et eksempel, hvor vi finder det største tal i et array ved hjælp af et for each-loop
+
+```cpp
+const float array[7] = { 12.0f, 8.4f, 9.121f, 0.01f, -76.77f, 12.0001f, 3.3333f };
+float largest = array[0]; // Vi initialiserer 'largest' med det første element i arrayet
+
+for(float i : array){
+  if(i > largest){
+    largest = i; // Hvis det nuværende element er større end 'largest', opdateres 'largest'
+  }
+}
+```
+
+I dette eksempel initialiseres largest med det første element i array. Derefter gennemløbes hvert element i array ved hjælp af et for each-loop. For hvert element sammenlignes værdien med largest, og hvis det nuværende element er større end largest, opdateres largest med værdien af det nuværende element. Når loopet er færdigt, vil largest indeholde det største tal i array.
