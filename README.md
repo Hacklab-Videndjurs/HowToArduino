@@ -14,6 +14,7 @@ Alle sektioner har en eller flere eksempler under introduktionen
 [Datatyper: Tal](#tal)
 - [Datatyper: unsigned](#kun-heltal)
 - [Datatyper: Konstanter](#konstanter)
+- [Datatyper: Arrays](#arrays)
 
 [Funktioner](#funktioner)
 
@@ -92,6 +93,35 @@ const float moveSpeed = 13.34f;
 
 Når vi definerer en konstant, skal vi også give den en værdi med det samme. Dette skyldes, at en konstant ikke kan ændres senere i koden. Dette sikrer, at værdien forbliver konstant og forhindrer utilsigtede ændringer i koden.
 
+### Arrays
+
+Når man dykker ned i konceptet om arrays, kan man tænke på dem som en form for liste, hvor hver element har en bestemt type. For eksempel kan man oprette et int array, hvilket essentielt er en liste af heltal. Når man opretter et array, har man typisk to tilgange: enten kan man angive størrelsen på arrayet på forhånd og derefter tilføje elementer senere, eller også kan man angive elementerne på oprettelsestidspunktet, hvorefter størrelsen automatisk bestemmes.
+
+Her er to eksempler, der illustrerer disse tilgange:
+
+```cpp
+// Dette array er foruddefineret med plads til 12 elementer
+int intArray[12];
+// Dette initialiserer arrayet med kapacitet til 12 heltal
+
+// Dette array er forudfyldt med elementer
+int array2[] = {12, 4, 2, -5, 99, 0};
+// Her bestemmer din compiler størrelsen af arrayet (6 heltal)
+```
+
+Når man ønsker at ændre eller indsætte et element i sit array, benytter man en lidt anderledes syntaks sammenlignet med hvad man måske er vant til. For at få adgang til et element i sit array og derefter ændre dets værdi, skal man angive det specifikke index for elementet, man vil manipulere.
+
+Her er et eksempel, der demonstrerer denne syntaks:
+
+```cpp
+// arrays bruger 0-index så her er 0, 1, 2, 3, 4 elementer
+int array[5] = {12, 3, 99, -1, 0};
+
+void setup(){
+  // Her ændres værdien på index 3 (-1) til 12
+  array[3] = 12;
+}
+```
 
 ## Funktioner
 
